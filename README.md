@@ -10,6 +10,7 @@ Each topic has voice and captions in **English · తెలుగు · हि�
 | # | Topic | Live link |
 |---|---|---|
 | 01 | DNS, step by step | https://abhignadumpala.github.io/learn-with-cloudy/dns/ |
+| 02 | From SDLC to DevOps | https://abhignadumpala.github.io/learn-with-cloudy/sdlc/ |
 
 ## DNS, step by step
 1. What DNS does: a name becomes an IP address
@@ -20,6 +21,15 @@ Each topic has voice and captions in **English · తెలుగు · हि�
 
 Plus short notes on what DNS is, why it exists, nslookup, and Route 53 hosted zones.
 
+## From SDLC to DevOps
+1. SDLC: the 7 steps, with a restaurant food-ordering app as the example
+2. Traditional SDLC: a Waterfall project over 12 months (testing in months 8–9, client first sees the app in month 12)
+3. Agile: a working feature every month, client feedback each sprint
+4. Agile + DevOps: git push → build → test → deploy, through DEV → SIT → UAT → PROD (CI/CD)
+5. What DevOps solves: faster releases, fewer defects, automated deploys, high availability, auto scaling, security and cost
+
+Plus short notes on why DevOps exists, stakeholders, SDLC phases, Waterfall vs Agile, environments, and what DevOps adds.
+
 **Controls:** play bar · ±5 s · step · speed 0.75×–1.5× · mute ·
 keys ← / → step, Shift + ← / → 5 s, Space play/pause, M voice, L language, F fullscreen
 
@@ -27,6 +37,7 @@ keys ← / → step, Shift + ← / → 5 s, Space play/pause, M voice, L languag
 ```
 index.html      home page with all topics
 dns/            DNS explainer (index.html + audio/)
+sdlc/           SDLC to DevOps explainer (index.html + audio/)
 ```
 
 Built from my hands-on notes: https://github.com/Abhignadumpala/devops-notes

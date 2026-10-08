@@ -29,7 +29,7 @@ body { background: var(--bg); color: var(--ink); font-family: var(--display); fo
 header.top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; }
 header.top h1 { margin: 0; font-size: clamp(1.5rem, 3.4vw, 2.1rem); font-weight: 800; font-stretch: 78%; letter-spacing: -0.01em; text-wrap: balance; }
 header.top p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-header.top .zone { font-family: var(--mono); font-size: 0.85rem; color: var(--accent); }
+header.top .zone { font-family: var(--mono); font-size: 0.85rem; color: var(--accent); text-decoration: none; }
 
 nav.scenes { display: flex; flex-wrap: wrap; gap: 8px; }
 nav.scenes button { font: inherit; font-size: 0.9rem; font-weight: 600; font-stretch: 85%; color: var(--ink); background: transparent;
@@ -162,7 +162,7 @@ html.rec .cmd { font-size: 18px; }
       <h1>DNS, step by step</h1>
       <p>How a name becomes an IP, and how I pointed my own domain at my 3-tier app.</p>
     </div>
-    <span class="zone">abhignadevops.store · Route 53</span>
+    <a class="zone" href="https://abhignadumpala.github.io/learn-with-cloudy/">← All topics · Learn with Cloudy</a>
   </header>
 
   <section class="notes" id="notes" aria-labelledby="notes-h"><h2 id="notes-h">DNS in short</h2><div class="ncards" id="ncards"></div></section>
