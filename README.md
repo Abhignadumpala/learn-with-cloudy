@@ -11,6 +11,7 @@ Each topic has voice and captions in **English · తెలుగు · हि�
 |---|---|---|
 | 01 | DNS, step by step | https://abhignadumpala.github.io/learn-with-cloudy/dns/ |
 | 02 | From SDLC to DevOps | https://abhignadumpala.github.io/learn-with-cloudy/sdlc/ |
+| 03 | Traditional IT vs Cloud vs Terraform | https://abhignadumpala.github.io/learn-with-cloudy/why-terraform/ |
 
 ## DNS, step by step
 1. What DNS does: a name becomes an IP address
@@ -30,6 +31,15 @@ Plus short notes on what DNS is, why it exists, nslookup, and Route 53 hosted zo
 
 Plus short notes on why DevOps exists, stakeholders, SDLC phases, Waterfall vs Agile, environments, and what DevOps adds.
 
+## Traditional IT vs Cloud vs Terraform
+1. Traditional IT: one server passes through business, analyst, architect, procurement, network, storage, backup and app teams (weeks to months)
+2. Cloud console: rent servers on AWS, Azure or Google Cloud and launch in minutes, but by hand for dev, staging and prod, so servers can differ
+3. Terraform: main.tf written once, tfvars per environment, terraform plan → apply, code in Git, many providers
+4. Why Terraform: automation, repeatable, version control, fewer mistakes, multi-cloud, cost control
+5. Traditional IT vs Cloud vs Terraform side by side: each step removes more manual work
+
+Plus short notes on what Terraform is, why use it, same code for every environment, and the init → plan → apply → destroy workflow.
+
 **Controls:** play bar · ±5 s · step · speed 0.75×–1.5× · mute ·
 keys ← / → step, Shift + ← / → 5 s, Space play/pause, M voice, L language, F fullscreen
 
@@ -38,6 +48,7 @@ keys ← / → step, Shift + ← / → 5 s, Space play/pause, M voice, L languag
 index.html      home page with all topics
 dns/            DNS explainer (index.html + audio/)
 sdlc/           SDLC to DevOps explainer (index.html + audio/)
+why-terraform/  Traditional IT vs Cloud vs Terraform explainer (index.html + audio/)
 ```
 
 Built from my hands-on notes: https://github.com/Abhignadumpala/devops-notes
