@@ -12,6 +12,7 @@ Each topic has voice and captions in **English · తెలుగు · हि�
 | 01 | DNS, step by step | https://abhignadumpala.github.io/learn-with-cloudy/dns/ |
 | 02 | From SDLC to DevOps | https://abhignadumpala.github.io/learn-with-cloudy/sdlc/ |
 | 03 | Traditional IT vs Cloud vs Terraform | https://abhignadumpala.github.io/learn-with-cloudy/why-terraform/ |
+| 04 | Deployment strategies | https://abhignadumpala.github.io/learn-with-cloudy/deployment-strategies/ |
 
 ## DNS, step by step
 1. What DNS does: a name becomes an IP address
@@ -40,6 +41,16 @@ Plus short notes on why DevOps exists, stakeholders, SDLC phases, Waterfall vs A
 
 Plus short notes on what Terraform is, why use it, same code for every environment, and the init → plan → apply → destroy workflow.
 
+## Deployment strategies
+1. What a deployment strategy is: the plan for how v2 replaces v1, and the 3 things it controls (downtime, blast radius, rollback speed)
+2. The 4 types: Recreate, Rolling update, Canary, Blue-green
+3. Rolling update live: `kubectl set image` adds one v2 Pod at a time (maxSurge 1, maxUnavailable 0), a bug in v2, then `kubectl rollout undo`
+4. Canary live: 10% of users to v2, errors on the canary, rollback by weight 0, then 10% → 50% → 100% after the fix
+5. Blue-green live: green next to blue, test on a preview URL, switch the Service selector, then switch back instantly
+6. Which one to pick: downtime, who a bug hits, rollback and extra cost side by side
+
+Plus short notes on each strategy and the rollout commands.
+
 **Controls:** play bar · ±5 s · step · speed 0.75×–1.5× · mute ·
 keys ← / → step, Shift + ← / → 5 s, Space play/pause, M voice, L language, F fullscreen
 
@@ -49,6 +60,7 @@ index.html      home page with all topics
 dns/            DNS explainer (index.html + audio/)
 sdlc/           SDLC to DevOps explainer (index.html + audio/)
 why-terraform/  Traditional IT vs Cloud vs Terraform explainer (index.html + audio/)
+deployment-strategies/  Deployment strategies explainer (index.html + audio/)
 ```
 
 Built from my hands-on notes: https://github.com/Abhignadumpala/devops-notes
