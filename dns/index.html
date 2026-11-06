@@ -154,6 +154,12 @@ html.rec .who { font-size: 20px; }
 html.rec .cap { padding: 4px 40px 24px; min-height: 0; height: 160px; }
 html.rec .cap p { font-size: 25px; max-width: none; }
 html.rec .cmd { font-size: 18px; }
+.stage-body { position: relative; cursor: pointer; }
+.tap { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.tap span { width: 76px; height: 76px; border-radius: 50%; background: var(--accent); color: var(--panel); display: grid; place-items: center;
+  font-size: 30px; padding-left: 6px; box-sizing: border-box; opacity: 0.88; box-shadow: 0 4px 18px rgba(0,0,0,0.25); }
+.tap[hidden] { display: none; }
+html.rec .tap { display: none; }
 </style>
 
 <div class="wrap">
@@ -205,6 +211,7 @@ html.rec .cmd { font-size: 18px; }
         <div class="who">Cloudy <span>· your cloud &amp; DevOps guide</span></div>
       </div>
       <div class="svgbox" id="svgbox"></div>
+      <div class="tap" id="tap" aria-hidden="true"><span>▶</span></div>
     </div>
     <div class="cap"><p id="cap"></p><div class="cmd" id="cmd" hidden></div></div>
   </section>
@@ -732,15 +739,15 @@ function tick(now) {
 function setT(x) {
   pos = Math.max(0, Math.min(TL.total - 0.03, x)); ended = false;
   if (audioOK) { try { audio.currentTime = pos; } catch (e) {} }
-  if (!playing) $('play').textContent = 'Play';
+  if (!playing) $('play').textContent = 'Play'; $('tap').hidden = false;
   render();
 }
 function play() {
   if (ended) setT(0);
-  playing = true; $('play').textContent = 'Pause';
+  playing = true; $('play').textContent = 'Pause'; $('tap').hidden = true;
   if (audioOK) { try { audio.currentTime = pos; } catch (e) {} audio.play().catch(() => {}); }
 }
-function pause() { playing = false; $('play').textContent = 'Play'; audio.pause(); }
+function pause() { playing = false; $('play').textContent = 'Play'; $('tap').hidden = false; audio.pause(); }
 function togglePlay() { playing ? pause() : play(); }
 function stepBy(d) {
   const n = idxAt(pos), lt = pos - TL.steps[n].start;
@@ -831,7 +838,8 @@ $('scenes').innerHTML = SCENES.map((s, i) => `<button><span>${i + 1}</span>${esc
 [...$('scenes').children].forEach((b, i) => b.onclick = () => setT(TL.sceneStart[i]));
 $('prev').onclick = () => stepBy(-1); $('next').onclick = () => stepBy(1);
 $('back5').onclick = () => seekBy(-5); $('fwd5').onclick = () => seekBy(5);
-$('play').onclick = togglePlay; $('voice').onclick = toggleVoice; $('fs').onclick = fullscreen;
+$('play').onclick = togglePlay;
+document.querySelector('.stage-body').addEventListener('click', togglePlay); $('voice').onclick = toggleVoice; $('fs').onclick = fullscreen;
 $('lang').value = lang; $('lang').onchange = e => setLang(e.target.value);
 $('speed').onchange = e => { speed = Number(e.target.value); audio.playbackRate = speed; };
 document.addEventListener('keydown', e => {
