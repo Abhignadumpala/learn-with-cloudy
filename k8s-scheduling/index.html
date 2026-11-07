@@ -726,7 +726,7 @@ function tick(now) {
 function setT(x) {
   pos = Math.max(0, Math.min(TL.total - 0.03, x)); ended = false;
   if (audioOK) { try { audio.currentTime = pos; } catch (e) {} }
-  if (!playing) $('play').textContent = 'Play'; $('tap').hidden = false;
+  if (!playing) { $('play').textContent = 'Play'; $('tap').hidden = false; }
   render();
 }
 function play() {
