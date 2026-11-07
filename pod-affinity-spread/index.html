@@ -634,7 +634,7 @@ function cloudy(lt, s) {
 /* ---------- voice track ---------- */
 const audio = new Audio(); audio.preload = 'auto';
 let audioOK = false;
-function loadAudio(l) { audioOK = false; audio.src = `audio/spread-${l}.mp3`; audio.load(); }
+function loadAudio(l) { audioOK = false; audio.src = `audio/spread-${l}.mp3?v=20261107`; audio.load(); }
 audio.addEventListener('loadedmetadata', () => {
   audioOK = true; audio.playbackRate = speed; audio.muted = !voice;
   try { audio.currentTime = pos; } catch (e) {}
